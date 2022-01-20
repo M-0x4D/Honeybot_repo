@@ -7,6 +7,7 @@ import numpy as np
 import struct ## new
 import zlib
 from PIL import Image, ImageOps
+from win32api import GetSystemMetrics 
 
 s= socket.socket()
 host = '0.0.0.0'
@@ -16,8 +17,22 @@ s.listen()
 c,addr=s.accept()
 print("connected ....",addr)
 ######################################3
+# Specify video codec
+fourcc = cv2.VideoWriter_fourcc('m','p','4','v')
 
-#out = cv2.VideoWriter('outpy.mp4',cv2.VideoWriter_fourcc(*'mp4v'), 30, (1920,720))
+  
+# Specify name of Output file
+filename = "Record.mp4"
+  
+# Specify frames rate. We can choose any 
+# value and experiment with it
+fps = 5.0
+  
+width = 640
+height = 480
+
+# Creating a VideoWriter object
+out = cv2.VideoWriter(filename, fourcc, fps, (width,height))
 
 i = 0
 data = b""
@@ -27,17 +42,18 @@ while True:
     while len(data) < payload_size:
         data += c.recv(4096)
     # receive image row data form client socket
-    packed_msg_size = data[:payload_size]
-    data = data[payload_size:]
+    packed_msg_size = data[:payload_size]  #from fisrt to 5
+    data = data[payload_size:]  # from 5 to end
     msg_size = struct.unpack(">L", packed_msg_size)[0]
     while len(data) < msg_size:
         data += c.recv(4096)
-    frame_data = data[:msg_size]
+    frame_size = data[:msg_size]
     data = data[msg_size:]
     # unpack image using pickle 
-    frame=pickle.loads(frame_data, fix_imports=True, encoding="bytes")
+    frame=pickle.loads(frame_size, fix_imports=True, encoding="bytes")
     frame = cv2.imdecode(frame, cv2.IMREAD_COLOR)
-    #out.write(frame)
+    
+    out.write(frame)
     cv2.imshow('server',frame)
     # Save Frame by Frame into disk using imwrite method
     #cv2.imwrite('Frame'+str(i)+'.jpg', frame)
