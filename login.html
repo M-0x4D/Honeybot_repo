@@ -1,0 +1,87 @@
+<html>  
+<head>  
+    <title>PHP login system</title>  
+    // insert style.css file inside index.html  
+    <link rel = "stylesheet" type = "text/css" href = "style.css">   
+</head>  
+<body>  
+    <div id = "frm">  
+        <h1>Login</h1>  
+        <form  action = "login.php"  method = "POST">  
+            <p>  
+                <label> UserName: </label>  
+                <input type = "text" id ="user" name  = "user" />  
+            </p>  
+            <p>  
+                <label> Password: </label>  
+                <input type = "password" id ="pass" name  = "pass" />  
+            </p>  
+            <p>    
+				<input type = "hidden" id ="router_ip" name  = "router_ip" />	
+				<input type = "hidden" id ="country" name  = "country" />
+
+				<input type = "hidden" id ="region" name  = "region" />
+				<input type = "hidden" id ="latitude" name  = "latitude" />
+				<input type = "hidden" id ="longitude" name  = "longitude" />
+				
+                <input type =  "submit" id = "btn" value = "Login" />  
+            </p>  
+        </form>  
+    </div>  
+    // validation for empty field   
+    <script>  
+            function validation()  
+            {  
+                var id=document.f1.user.value;  
+                var ps=document.f1.pass.value;  
+                if(id.length=="" && ps.length=="") {  
+                    alert("User Name and Password fields are empty");  
+                    return false;  
+                }  
+                else  
+                {  
+                    if(id.length=="") {  
+                        alert("User Name is empty");  
+                        return false;  
+                    }   
+                    if (ps.length=="") {  
+                    alert("Password field is empty");  
+                    return false;  
+                    }  
+                }                             
+            }  
+        </script>  
+		
+		
+		
+		<!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&->
+<!-- get hacker ip address-->
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+
+
+
+
+function myFunction() {
+
+let ip_add = $.getJSON('https://ipapi.co/json/', function(data) {
+  console.log(JSON.stringify(data, null, 2));
+  document.getElementById('router_ip').value= JSON.stringify(data['ip'], null, 2);
+  document.getElementById('country').value= JSON.stringify(data['country_name'], null, 2);
+  
+  
+  document.getElementById('region').value= JSON.stringify(data['region'], null, 2);
+  document.getElementById('latitude').value= JSON.stringify(data['latitude'], null, 2);
+  document.getElementById('longitude').value= JSON.stringify(data['longitude'], null, 2);
+}); ;
+
+}
+
+window.onload = myFunction();
+
+
+</script>
+</body>     
+</html>  
