@@ -1,8 +1,3 @@
-
-
-https://user-images.githubusercontent.com/56012558/168386966-e9de71b9-6a91-4cf6-88f0-1390a7ac516d.mp4
-
-![hacked](https://user-images.githubusercontent.com/56012558/168387177-8da6601a-e08b-4469-ad48-f8f7a64c7f34.png)
 # Honeypot_repo
 ![command_injection](https://user-images.githubusercontent.com/56012558/168325077-40d51d08-d5b8-44b9-8753-c090750f2437.png)
 ![command_injection_php_code](https://user-images.githubusercontent.com/56012558/168325100-fb58a9de-4b36-4889-83df-c90e93c3c807.png)
@@ -15,4 +10,5 @@ https://user-images.githubusercontent.com/56012558/168386966-e9de71b9-6a91-4cf6-
 ![upload_shell](https://user-images.githubusercontent.com/56012558/168325184-51d9d7a7-05fc-4c20-8c44-cf72a73b21ec.png)
 ![xampp_server](https://user-images.githubusercontent.com/56012558/168325189-aedf2684-332c-4cfb-95c9-4e740ad126db.png)
 ![XXE_php_code](https://user-images.githubusercontent.com/56012558/168325190-0a29f4a6-ee4d-44ee-9d3b-96224d4c0725.png)
+![hacked](https://user-images.githubusercontent.com/56012558/168387177-8da6601a-e08b-4469-ad48-f8f7a64c7f34.png)
 
